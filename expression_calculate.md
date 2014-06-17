@@ -1,4 +1,4 @@
-#四则运算表达式计算（中缀表达式）
+#四则运算表达式求值
 
 ##算法描述
 
@@ -192,6 +192,9 @@ int main(void)
 输出为（gcc 4.8.2）：
 
 ```C++
-input expression is: (8+4)*5-7/2 3-5*2*(6/2) 3-5*2(6/2) 
+input expression is: (8+4)*5-7/2 3-5*2*(6/2) 3-5*2(6/2)
 result is: 56.5 -27 -27
 ```
+## 参考资料
+
+[四则混合运算C++代码](http://blog.csdn.net/windyitian/article/details/7307290)
