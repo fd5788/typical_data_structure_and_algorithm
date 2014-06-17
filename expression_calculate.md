@@ -14,7 +14,7 @@
 
 ##C++实现
 
-这里直接可借助 C++ STL 的模板库`stack`，没必要闭门造车。
+这里可直接借助 C++ STL 的模板库`stack`，没必要闭门造车。
 
 ```C++
 #include <iostream>
