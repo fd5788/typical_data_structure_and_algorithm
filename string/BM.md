@@ -129,6 +129,6 @@ Boyer-Moore算法不仅效率高，而且构思巧妙，容易理解。1977年�
 从尾部开始逐位比较，发现全部匹配，于是搜索结束。如果还要继续查找（即找出全部匹配），则根据"好后缀规则"，后移 6 - 0 = 6位，即头部的"E"移到尾部的"E"的位置。
 
 > 以上为[原文](http://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html)。
-> <a name="ref1"></a>
->
-> [\[1\]](http://www.stoimen.com/blog/2012/04/17/computer-algorithms-boyer-moore-string-search-and-matching)（Boyer-Moore String Searching）
+
+<a name="ref1"></a>
+\[1\][Boyer-Moore String Searching](http://www.stoimen.com/blog/2012/04/17/computer-algorithms-boyer-moore-string-search-and-matching)
