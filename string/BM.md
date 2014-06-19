@@ -4,7 +4,7 @@
 
 上一篇文章，我介绍了[KMP算法](KMP.md)。
 
-但是，它并不是效率最高的算法，实际采用并不多。各种文本编辑器的"查找"功能（Ctrl+F）[1](#ref1)，大多采用[Boyer-Moore算法](http://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm)（简称BM算法）。
+但是，它并不是效率最高的算法，实际采用并不多。各种文本编辑器的"查找"功能（Ctrl+F）[1](#ref)，大多采用[Boyer-Moore算法](http://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm)（简称BM算法）。
 
 Boyer-Moore算法不仅效率高，而且构思巧妙，容易理解。1977年，德克萨斯大学的Robert S. Boyer教授和J Strother Moore教授发明了这种算法。
 
@@ -130,5 +130,5 @@ Boyer-Moore算法不仅效率高，而且构思巧妙，容易理解。1977年�
 
 > 以上为[原文](http://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html)。
 
-<a name="ref1"></a>
-\[1\][Boyer-Moore String Searching](http://www.stoimen.com/blog/2012/04/17/computer-algorithms-boyer-moore-string-search-and-matching)
+<a name="ref"></a>
+[1][Boyer-Moore String Searching](http://www.stoimen.com/blog/2012/04/17/computer-algorithms-boyer-moore-string-search-and-matching)
