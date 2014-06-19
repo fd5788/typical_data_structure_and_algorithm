@@ -131,4 +131,4 @@ Boyer-Moore算法不仅效率高，而且构思巧妙，容易理解。1977年�
 > 以上为[原文](http://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html)。
 > <a name="ref1"></a>
 >
-> [1](http://www.stoimen.com/blog/2012/04/17/computer-algorithms-boyer-moore-string-search-and-matching)（Boyer-Moore String Searching）
+> [\[1\]](http://www.stoimen.com/blog/2012/04/17/computer-algorithms-boyer-moore-string-search-and-matching)（Boyer-Moore String Searching）
