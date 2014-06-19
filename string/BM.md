@@ -12,13 +12,13 @@ Boyer-Moore算法不仅效率高，而且构思巧妙，容易理解。1977年�
 
 1.
 
-![img1](image/bm/bm1.png)
+![img1](../image/bm/bm1.png)
 
 假定字符串为"HERE IS A SIMPLE EXAMPLE"，搜索词为"EXAMPLE"。
 
 2.
 
-![img2](image/bm/bm2.png)
+![img2](../image/bm/bm2.png)
 
 首先，"字符串"与"搜索词"头部对齐，从尾部开始比较。
 
@@ -28,15 +28,15 @@ Boyer-Moore算法不仅效率高，而且构思巧妙，容易理解。1977年�
 
 3.
 
-![img3](image/bm/bm3.png)
+![img3](../image/bm/bm3.png)
 
 依然从尾部开始比较，发现"P"与"E"不匹配，所以"P"是"坏字符"。但是，"P"包含在搜索词"EXAMPLE"之中。所以，将搜索词后移两位，两个"P"对齐。
 
 4.
 
-![img4](image/bm/bm4.png)
+![img4](../image/bm/bm4.png)
 
-我们由此总结出"坏字符规则"：
+我们由此总结出"**坏字符规则**"：
 
 ```
     　　后移位数 = 坏字符的位置 - 搜索词中的上一次出现位置
@@ -48,43 +48,43 @@ Boyer-Moore算法不仅效率高，而且构思巧妙，容易理解。1977年�
 
 5.
 
-![img5](image/bm/bm5.png)
+![img5](../image/bm/bm5.png)
 
 依然从尾部开始比较，"E"与"E"匹配。
 
 6.
 
-![img6](image/bm/bm6.png)
+![img6](../image/bm/bm6.png)
 
 比较前面一位，"LE"与"LE"匹配。
 
 7.
 
-![img7](image/bm/bm7.png)
+![img7](../image/bm/bm7.png)
 
 比较前面一位，"PLE"与"PLE"匹配。
 
 8.
 
-![img8](image/bm/bm8.png)
+![img8](../image/bm/bm8.png)
 
 比较前面一位，"MPLE"与"MPLE"匹配。我们把这种情况称为"**好后缀**"（good suffix），即所有尾部匹配的字符串。注意，"MPLE"、"PLE"、"LE"、"E"都是好后缀。
 
 9.
 
-![img9](image/bm/bm9.png)
+![img9](../image/bm/bm9.png)
 
 比较前一位，发现"I"与"A"不匹配。所以，"I"是"坏字符"。
 
 10.
 
-![img10](image/bm/bm10.png)
+![img10](../image/bm/bm10.png)
 
 根据"坏字符规则"，此时搜索词应该后移 2 - （-1）= 3 位。问题是，此时有没有更好的移法？
 
 11.
 
-![img11](image/bm/bm11.png)
+![img11](../image/bm/bm11.png)
 
 我们知道，此时存在"好后缀"。所以，可以采用"好后缀规则"：
 
@@ -110,7 +110,7 @@ Boyer-Moore算法不仅效率高，而且构思巧妙，容易理解。1977年�
 
 12.
 
-![img12](image/bm/bm12.png)
+![img12](../image/bm/bm12.png)
 
 可以看到，"坏字符规则"只能移3位，"好后缀规则"可以移6位。所以，**Boyer-Moore算法的基本思想是，每次后移这两个规则之中的较大值**。
 
@@ -118,13 +118,13 @@ Boyer-Moore算法不仅效率高，而且构思巧妙，容易理解。1977年�
 
 13.
 
-![img13](image/bm/bm13.png)
+![img13](../image/bm/bm13.png)
 
 继续从尾部开始比较，"P"与"E"不匹配，因此"P"是"坏字符"。根据"坏字符规则"，后移 6 - 4 = 2位。
 
 14.
 
-![img14](image/bm/bm14.png)
+![img14](../image/bm/bm14.png)
 
 从尾部开始逐位比较，发现全部匹配，于是搜索结束。如果还要继续查找（即找出全部匹配），则根据"好后缀规则"，后移 6 - 0 = 6位，即头部的"E"移到尾部的"E"的位置。
 
