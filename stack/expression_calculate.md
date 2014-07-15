@@ -33,31 +33,32 @@
 */
 std::string InfixToPostfix(std::string infix)
 {
-    char current = 0;//读入的字符
-    std::string postfix;//写入后缀表达式的字符串
+    char current = 0;
+    std::string postfix;//后缀表达式
 
-    std::stack<char> mark;//符号入栈
+    std::stack<char> mark;//符号栈
 
-    std::map<char,int> priority;//运算符号优先级表
+    std::map<char,int> priority;//符号优先级
     priority['+'] = 0;
     priority['-'] = 0;
     priority['*'] = 1;
     priority['/'] = 1;
 
-    for(int i = 0;i < infix.size(); ++i)//逐个读取中缀表达式字符串中的字符
+    for(int i = 0;i < infix.size(); ++i)
     {
-        current =infix[i];
+        current = infix[i];
         switch(current)
         {
             case '0':case '1':case '2':case '3':case '4':case '5':
             case '6':case '7':case '8':case '9':case '.':
-                postfix.push_back(current);//如果是数字的话直接写入输出字符串。
+                postfix.push_back(current);//数字直接写入
                 break;
             case '+':case '-':case '*':case '/':
-                //如果运算符的前一项不是右括号即说明前一个数字输入完毕，用#标识前面几个字符组成一个数字。
+                //如果运算符的前一项不是右括号即说明前一个数字输入完毕，用#标识
                 if(infix[i-1] != ')')
                     postfix.push_back('#');
-                //如果符号栈非空，即比较目前符号与栈顶符号优先级，低于等于出栈，并写入输出字符串。
+                //如果符号栈非空，即比较目前符号与栈顶符号优先级，低于等于出栈(并写入输出字符串)，
+                //直至符号全部出栈或者遇到了'('或者大于栈顶符号的优先级
                 if(!mark.empty())
                 {
                     char tempTop = mark.top();
@@ -70,7 +71,7 @@ std::string InfixToPostfix(std::string infix)
                         tempTop = mark.top();
                     }
                 }
-                mark.push(current);//符号全部出栈或者遇到了'('或者大于栈顶符号的优先级，将新符号压入栈中
+                mark.push(current);//新符号入栈
                 break;
             case '(':
                 if(infix[i-1] >= '0' && infix[i-1] <= '9')// for expression 2-5*2(6/2)
@@ -81,26 +82,26 @@ std::string InfixToPostfix(std::string infix)
                 mark.push(current);
                 break;
             case ')':
-                postfix.push_back('#');//右括号说明前方数字输入完成，标识一下。
-                while(mark.top() != '(')//直到栈顶元素是左括号才停止循环
+                postfix.push_back('#');//右括号说明前方数字输入完成，标识一下
+                while(mark.top() != '(')
                 {
-                    postfix.push_back(mark.top());//出栈并写入输出字符串中。
+                    postfix.push_back(mark.top());
                     mark.pop();
                 }
-                mark.pop();//直接将左括号出栈。
+                mark.pop();//左括号出栈
                 break;
             default:
-                break;//忽略其他字符。
+                break;//忽略其他字符
         }
     }
     if(infix[infix.size()-1] != ')')
         postfix.push_back('#');//中缀表达式最后一个是数字需要加上#。
-    while(!mark.empty())//如果栈非空，全部出栈并写入输出字符串。
+    while(!mark.empty())//如果栈非空，全部出栈并写入输出字符串
     {
         postfix.push_back(mark.top());
         mark.pop();
     }
-    return postfix;//返回后缀表达式。
+    return postfix;
 }
 
 /*  计算后缀表达式结果
@@ -155,7 +156,7 @@ float posfixCompute(std::string s)
                 tempResult.push(tempNum);
                 break;
             case '#':
-                currNum = atof(strNum.c_str());//in c++11  currNum = std::stof(strNUm);
+                currNum = atof(strNum.c_str());//in c++11, use currNum = std::stof(strNUm);
                 strNum.clear();
                 tempResult.push(currNum);
                 break;
