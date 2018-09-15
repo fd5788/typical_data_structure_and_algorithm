@@ -1,4 +1,4 @@
-#include"union_find_sets.hpp"
+#include"union_find_sets.h"
 
 UnionFindSets::UnionFindSets(int N)
 {

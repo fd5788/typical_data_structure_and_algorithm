@@ -4,10 +4,6 @@ using namespace std;
 
 class UnionFindSets
 {
-private:
-    int cnt;
-    int* id;
-    int* rank;
 public:
     UnionFindSets(int N)
     {
@@ -71,6 +67,10 @@ public:
     {
         id[i] = val;
     }
+private:
+    int cnt;
+    int* id;
+    int* rank;
 };
 
 /**

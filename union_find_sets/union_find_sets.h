@@ -1,12 +1,8 @@
-#ifndef UNION_FIND_SETS_HPP
-#define UNION_FIND_SETS_HPP
+#ifndef UNION_FIND_SETS_H
+#define UNION_FIND_SETS_H
 
 class UnionFindSets
 {
-private:
-    int cnt;
-    int* id;
-    int* rank;
 public:
     UnionFindSets(int N);
     ~UnionFindSets();
@@ -17,6 +13,10 @@ public:
     bool root(int p);
     int getParent(int i);
     void setParent(int i, int val);
+private:
+    int cnt;
+    int* id;
+    int* rank;
 };
 
 #endif

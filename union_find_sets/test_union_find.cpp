@@ -1,16 +1,16 @@
 #include <iostream>
 #include <fstream>
-#include "union_find_sets.hpp"
+#include "union_find_sets.h"
 
 using namespace std;
 
 void Test()
 {
-    //redict
-    streambuf *backup = cin.rdbuf();
-    ifstream fin;
-    fin.open("data.in");
-    cin.rdbuf(fin.rdbuf());
+    //redirect
+    streambuf* streambuf_backup = cin.rdbuf();
+    ifstream fin_stream;
+    fin_stream.open("data.in");
+    cin.rdbuf(fin_stream.rdbuf());
 
     int M;
     cin >> M;
@@ -59,8 +59,8 @@ void Test()
     }
     cout << res << endl;
 
-    //reset redict
-    cin.rdbuf(backup);
+    //reset redirect
+    cin.rdbuf(streambuf_backup);
 
 }
 
