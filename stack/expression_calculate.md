@@ -81,7 +81,8 @@ std::string InfixToPostfix(std::string infix)
                 mark.push(current);
                 break;
             case ')':
-                postfix.push_back('#');//右括号说明前方数字输入完成，标识一下
+                if(infix[i-1] >= '0' && infix[i-1] <= '9')
+                    postfix.push_back('#');//右括号说明前方数字输入完成，标识一下
                 while(mark.top() != '(')
                 {
                     postfix.push_back(mark.top());

@@ -63,7 +63,8 @@ std::string InfixToPostfix(std::string infix)
                 mark.push(current);
                 break;
             case ')':
-                postfix.push_back('#');//右括号说明前方数字输入完成，标识一下
+                if(infix[i-1] >= '0' && infix[i-1] <= '9')
+                    postfix.push_back('#');//右括号说明前方数字输入完成，标识一下
                 while(mark.top() != '(')
                 {
                     postfix.push_back(mark.top());
@@ -156,16 +157,19 @@ int main(void)
     std::string test1 = "(8+4)*5-7/2";
     std::string test2 = "3-5*2*(6/2)";
     std::string test3 = "3-5*2(6/2)";
+    std::string test4 = "2*(1*2+(1+1))";
     std::cout << "input expression is: "
          << test1 << " "
          << test2 << " "
          << test3 << " "
+         << test4 << " "
          << std::endl;
 
     std::cout << "result is: "
          << expressionCalculate(test1) << " "
          << expressionCalculate(test2) << " "
          << expressionCalculate(test3) << " "
+         << expressionCalculate(test4) << " "
          << std::endl;
 
     return 0;
