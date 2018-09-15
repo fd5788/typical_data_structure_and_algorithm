@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstddef>
 
+//refs->https://blog.csdn.net/smile_to_life/article/details/53383861
+
 class twobitmap
 {
 public:
