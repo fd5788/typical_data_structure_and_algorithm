@@ -35,7 +35,7 @@ void Test()
             a = i * M + j;
             if(!arr[i][j])
             {
-                uf.setParent(a, -1);
+                uf.reset(a, -1);
                 continue;
             }
             if(j + 1 < M && arr[i][j + 1])
@@ -54,7 +54,7 @@ void Test()
     int res = 0;
     for(int i = 0; i < total; ++i)
     {
-        if (uf.getParent(i) != -1 && uf.root(i))
+        if (uf.find(i) != -1 && uf.root(i))
             res++;
     }
     cout << res << endl;
