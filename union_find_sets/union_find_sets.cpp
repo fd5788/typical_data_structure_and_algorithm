@@ -26,6 +26,13 @@ bool UnionFindSets::connected(int p, int q)
 }
 int UnionFindSets::find(int p)
 {
+    ////递归
+    //if(p != id[p])
+    //{
+        //id[p] = find(id[p]);
+    //}
+    //return id[p];
+    //非递归
     while(p != id[p])
     {
         id[p] = id[id[p]];
