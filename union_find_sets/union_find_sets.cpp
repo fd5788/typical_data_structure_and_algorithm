@@ -54,11 +54,7 @@ bool UnionFindSets::root(int p)
 {
     return p == id[p];
 }
-int UnionFindSets::getParent(int i)
-{
-    return id[i];
-}
-void UnionFindSets::setParent(int i, int val)
+void UnionFindSets::reset(int i, int val)
 {
     id[i] = val;
 }

@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-using namespace std;
 
 class UnionFindSets
 {
@@ -59,11 +58,7 @@ public:
     {
         return p == id[p];
     }
-    int getParent(int i)
-    {
-        return id[i];
-    }
-    void setParent(int i, int val)
+    void reset(int i, int val)
     {
         id[i] = val;
     }

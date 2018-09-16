@@ -11,8 +11,7 @@ public:
     int find(int p);
     void merge(int p, int q);
     bool root(int p);
-    int getParent(int i);
-    void setParent(int i, int val);
+    void reset(int i, int val);
 private:
     int cnt;
     int* id;
