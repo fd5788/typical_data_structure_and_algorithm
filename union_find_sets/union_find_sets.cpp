@@ -16,7 +16,7 @@ UnionFindSets::~UnionFindSets()
     delete[] id;
     delete[] rank;
 }
-int UnionFindSets::count()
+int UnionFindSets::count() const
 {
     return cnt;
 }
@@ -57,11 +57,15 @@ void UnionFindSets::merge(int p, int q)
     }
     cnt--;
 }
-bool UnionFindSets::root(int p)
+bool UnionFindSets::root(int p) const
 {
     return p == id[p];
 }
-void UnionFindSets::reset(int i, int val)
+void UnionFindSets::reset(int p, int val)
 {
-    id[i] = val;
+    id[p] = val;
+}
+int UnionFindSets::get(int p) const
+{
+    return id[p];
 }

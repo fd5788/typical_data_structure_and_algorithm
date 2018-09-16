@@ -55,7 +55,9 @@ void Test()
     for(int i = 0; i < total; ++i)
     {
         if (uf.find(i) != -1 && uf.root(i))
+        {
             res++;
+        }
     }
     cout << res << endl;
 

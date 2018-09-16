@@ -20,7 +20,7 @@ public:
         delete[] id;
         delete[] rank;
     }
-    int count()
+    int count() const
     {
         return cnt;
     }
@@ -61,13 +61,17 @@ public:
         }
         cnt--;
     }
-    bool root(int p)
+    bool root(int p) const
     {
         return p == id[p];
     }
-    void reset(int i, int val)
+    void reset(int p, int val)
     {
-        id[i] = val;
+        id[p] = val;
+    }
+    int get(int p)
+    {
+        return id[p];
     }
 private:
     int cnt;

@@ -6,12 +6,13 @@ class UnionFindSets
 public:
     UnionFindSets(int N);
     ~UnionFindSets();
-    int count();
+    int count() const;
     bool connected(int p, int q);
     int find(int p);
     void merge(int p, int q);
-    bool root(int p);
-    void reset(int i, int val);
+    bool root(int p) const;
+    void reset(int p, int val);
+    int get(int p) const;
 private:
     int cnt;
     int* id;
