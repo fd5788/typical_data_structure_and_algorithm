@@ -1,10 +1,16 @@
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include <map>
+#include <string>
+#include <sstream>
+#include <utility>
+
 #include "union_find_sets.h"
 
 using namespace std;
 
-void Test()
+void test1()
 {
     //redirect
     streambuf* streambuf_backup = cin.rdbuf();
@@ -66,13 +72,49 @@ void Test()
 
 }
 
+void test2()
+{
+    //redirect
+    streambuf* streambuf_backup = cin.rdbuf();
+    ifstream fin_stream;
+    fin_stream.open("data2.in");
+    cin.rdbuf(fin_stream.rdbuf());
+
+    //相邻的两个表示朋友
+    vector<int> vec;
+    map<int, int> map;
+    int a, b;
+    string str;
+    getline(cin, str);
+    istringstream iss(str);
+    while(iss >> a)
+    {
+        vec.push_back(a);
+        if(map.find(a) == map.end())
+            map.insert(pair<int, int> (a, map.size()));
+    }
+    UnionFindSets uf(map.size());
+    for(size_t i = 0; i < vec.size(); i += 2)
+    {
+        uf.merge(map[vec[i]], map[vec[i + 1]]);
+    }
+    for(auto & i : map)
+        cout << i.first << " " << i.second << " " << uf.get(i.second) << endl;
+    while(cin >> a >> b)
+    {
+        cout << uf.connected(map[a], map[b]) << endl;
+    }
+
+    //reset redirect
+    cin.rdbuf(streambuf_backup);
+}
+
 int main(void)
 {
-    Test();
-    int a[] = { 1, 2 , 3, 4, 5};
-    for (auto i : a) {
-        cout << i << endl;
-    }
+    cout << "测试1" << endl;
+    test1();
+    cout << "测试2" << endl;
+    test2();
     return 0;
 }
 

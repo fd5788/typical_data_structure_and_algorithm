@@ -34,7 +34,7 @@ int UnionFindSets::find(int p)
     //}
     //return id[p];
     //非递归
-    //find root
+    //fin d root
     int r = p;
     while(r != id[r])
         r = id[r];
