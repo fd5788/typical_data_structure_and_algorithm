@@ -1,17 +1,20 @@
-#include <iostream>
+#ifndef S_UTILITY_H
+#define S_UTILITY_H
+
 #include <vector>
 #include <string>
 #include <cstring>
 #include <sstream>
 
-std::vector<int> split_k(const std::string& str, const char* delim)
+std::vector<int> split(const std::string& str, const char* delim)
 {
     std::vector<int> vec;
     if(str.size() == 0) return vec;
-    char *c_str = (char *) str.c_str();
-    std::strcpy(c_str, str.c_str());
+    //char *cstr = new char[str.size() + 1];
+    char *cstr = const_cast<char*>(str.c_str());
+    std::strcpy(cstr, str.c_str());
 
-    char *p = std::strtok(c_str, delim);
+    char *p = std::strtok(cstr, delim);
     int d;
     while(p)
     {
@@ -38,3 +41,5 @@ std::vector<int> split(const std::string& str)
 
     return vec;
 }
+
+#endif
